@@ -1,1 +1,3 @@
-<p>country-list works!</p>
+<div class="country-list" *ngFor="let country of countries$ | async">
+  {{country | json}}
+</div>
