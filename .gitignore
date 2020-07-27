@@ -44,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+projects/countries-rest-api/src/assets/README.md
+projects/countries-rest-api/src/assets/style-guide.md
