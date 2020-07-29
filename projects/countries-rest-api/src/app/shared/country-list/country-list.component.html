@@ -1,3 +1,3 @@
-<div class="country-list" *ngFor="let country of countries$ | async">
-  {{country | json}}
+<div class="country-list">
+  <piero-country-item (countrySelected)="onCountrySelected($event)" [country]="country" *ngFor="let country of countries$ | async"></piero-country-item>
 </div>

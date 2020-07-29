@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CountryListService } from './country-list.service';
 import { Observable } from 'rxjs';
 import { Country } from './country-list-factory';
@@ -12,6 +12,7 @@ import { Country } from './country-list-factory';
 export class CountryListComponent implements OnInit {
 
   countries$: Observable<Country[]>;
+  @Output() countrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
   constructor(
     private countryListService: CountryListService
@@ -19,6 +20,10 @@ export class CountryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.countries$ = this.countryListService.countryList$;
+  }
+
+  onCountrySelected(selectedCountry: Country) {
+    this.countrySelected.next(selectedCountry);
   }
 
 }

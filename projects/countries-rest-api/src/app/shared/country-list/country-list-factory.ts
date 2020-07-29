@@ -8,7 +8,11 @@ export interface Country {
   languages: Language[];
   subregion: string;
   capital: string;
-  borders: string[]; 
+  borders: string[];
+  flag: string;
+  alpha3Code: string;
+  currenciesCode?: string[];
+  languagesName?: string[];
 }
 
 

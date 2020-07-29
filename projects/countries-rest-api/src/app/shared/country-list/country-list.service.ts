@@ -6,7 +6,7 @@ import { Country } from './country-list-factory';
 @Injectable()
 export class CountryListService {
 
-  private filterFields = '?fields=nativeName;topLevelDomain;population;currencies;region;languages;subregion;capital;borders;';
+  private filterFields = '?fields=name;nativeName;topLevelDomain;population;currencies;region;languages;subregion;capital;borders;flag;alpha3Code;';
   public countryList$ = this.http.get<Country[]>('https://restcountries.eu/rest/v2/all' + this.filterFields);
 
   constructor(
