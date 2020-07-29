@@ -1,0 +1,9 @@
+<div class="card" (click)="onCountrySelected()">
+  <div class="card__image" [ngStyle]="{'background-image': 'url(' + country.flag + ')'}"></div>
+  <div class="card__info">
+    <div class="card__title"> {{country.name}}</div>
+    <div class="card__population"> {{country.population}}</div>
+    <div class="card__region">{{country.region}}</div>
+    <div class="card__capital">{{country.capital}}</div>
+  </div>
+</div>
