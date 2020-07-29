@@ -4,7 +4,7 @@ import { CountryDetailComponent } from './country-detail.component';
 
 
 const routes: Routes = [
-  {path: '/:id', component: CountryDetailComponent}
+  {path: ':id', component: CountryDetailComponent}
 ];
 
 @NgModule({
