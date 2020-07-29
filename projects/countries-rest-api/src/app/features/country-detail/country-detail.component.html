@@ -1,1 +1,26 @@
-<p>country-detail works!</p>
+<div class="container">
+  <div class="back">
+    <button type="button" (click)="onBackSelected()">Back</button>
+  </div>
+  <div class="detailedCountry" *ngIf="selectedCountry">
+    <div class="detailedCountry__image" [ngStyle]="{'background-image': 'url(' + selectedCountry.flag + ')'}"></div>
+    <div class="detailedCountry__text">
+      <div class="detailedCountry__text__firstSection">
+        <span class="detailedCountry__text__name"><span class="bold">Native Name:</span>{{selectedCountry.nativeName}}</span>
+        <span class="detailedCountry__text__population"><span class="bold">Population:</span>{{selectedCountry.population}}</span>
+        <span class="detailedCountry__text__region"><span class="bold">Region:</span>{{selectedCountry.region}}</span>
+        <span class="detailedCountry__text__subRegion"><span class="bold">Sub Region:</span>{{selectedCountry.subregion}}</span>
+        <span class="detailedCountry__text__capital"><span class="bold">Capital:</span>{{selectedCountry.capital}}</span>
+      </div>
+      <div class="detailedCountry__text__secondSection">
+        <span class="detailedCountry__text__topLevelDomain"><span class="bold">Top Level Domain:</span>{{selectedCountry.topLevelDomain}}</span>
+        <span class="detailedCountry__text__currencies"><span class="bold">Currencies:</span>{{selectedCountry.currenciesCode?.toString()}}</span>
+        <span class="detailedCountry__text__language"><span class="bold">Languages:</span>{{selectedCountry.languagesName?.toString()}}</span>
+      </div>
+      <div class="detailedCountry__borderCountries">
+        <span class="detailedCountry__borderCountries__text">Border Countries:</span>
+        <!-- <span class="detailedCountry__borderCountries__border">{{selectedCountry.borders.toString()}}</span> -->
+      </div>
+    </div>
+  </div>
+</div>
