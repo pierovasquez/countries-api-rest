@@ -1,1 +1,3 @@
-<piero-country-list (countrySelected)="onCountrySelected($event)"></piero-country-list>
+
+<piero-filter-input (filterClear)="onFilterClear()"></piero-filter-input>
+<piero-country-list [filterClear]="filterClear" [countries]="filteredCountries" (countrySelected)="onCountrySelected($event)"></piero-country-list>
