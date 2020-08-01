@@ -1,9 +1,12 @@
-<div class="header">
+<div class="header {{storedTheme}} p-x">
   <div class="header__title">
     Where in the world?
   </div>
-  <div class="header__light_mode">
+  <div class="header__theme_mode" (click)="toogleThemeMode()">
+    <fa-icon [icon]="faMoon"></fa-icon>
     Dark Mode
   </div>
 </div>
-<router-outlet></router-outlet>
+<div class="container {{storedTheme}} p-x">
+  <router-outlet></router-outlet>
+</div>

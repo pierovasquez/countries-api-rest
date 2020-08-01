@@ -1,5 +1,39 @@
+@import "../assets/styles/variables";
+
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+
+  &__title {
+    font-weight: 800;
+  }
+
+
+  &__theme_mode {
+    font-weight: 300;
+    cursor: pointer;
+  }
+}
+
+.header.theme-dark {
+  background-color: $darkBlueDarkMode;
+  color: $white;
+}
+
+.p-x {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+
+.container.theme-light {
+  background-color: $veryLightGrayLightMode;
+}
+
+.container.theme-dark {
+  background-color:  $veryDarkBlueDarkMode;
+  color: $white;
 }
