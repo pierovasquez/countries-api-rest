@@ -1,10 +1,19 @@
 .card {
   display: flex;
+  flex-direction: column;
 
   &__image {
-    width: 100px;
-    height: 50px;
+    width:  352px;
+    height: 214px;
     background-size: cover;
     background-position: center;
   }
+
+  &__title {
+    font-weight: 800;
+  }
+}
+
+.info__bold {
+  font-weight: 300;
 }

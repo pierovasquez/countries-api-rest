@@ -9,14 +9,15 @@ import { CountryItemComponent } from './country-item/country-item.component';
 @NgModule({
   declarations: [
     CountryListComponent,
-    CountryItemComponent
+    CountryItemComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule
   ],
   exports: [
-    CountryListComponent
+    CountryListComponent,
+    
   ]
 })
 export class SharedModule { }

@@ -2,8 +2,8 @@
   <div class="card__image" [ngStyle]="{'background-image': 'url(' + country.flag + ')'}"></div>
   <div class="card__info">
     <div class="card__title"> {{country.name}}</div>
-    <div class="card__population"> {{country.population}}</div>
-    <div class="card__region">{{country.region}}</div>
-    <div class="card__capital">{{country.capital}}</div>
+    <div class="card__population"><span class="info_bold">Population:</span> {{country.population}}</div>
+    <div class="card__region"><span class="info_bold">Region:</span>{{country.region}}</div>
+    <div class="card__capital"><span class="info_bold">Capital:</span>{{country.capital}}</div>
   </div>
 </div>

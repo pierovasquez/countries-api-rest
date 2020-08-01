@@ -1,3 +1,9 @@
-<div class="country-list">
-  <piero-country-item (countrySelected)="onCountrySelected($event)" [country]="country" *ngFor="let country of countries$ | async"></piero-country-item>
+<div class="country-list" *ngIf="filterClear">
+  <piero-country-item (countrySelected)="onCountrySelected($event)" [country]="country"
+    *ngFor="let country of countries$ | async"></piero-country-item>
+</div>
+
+<div class="country-list" *ngIf="!filterClear">
+  <piero-country-item (countrySelected)="onCountrySelected($event)" [country]="country"
+    *ngFor="let country of countries"></piero-country-item>
 </div>
