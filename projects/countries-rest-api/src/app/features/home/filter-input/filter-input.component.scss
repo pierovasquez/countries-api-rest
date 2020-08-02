@@ -1,24 +1,37 @@
+@import "../../../../assets/styles/variables";
+
 input {
-  border-right: none;
-  transition: all .3s ease-in;
-  width: 120px;
-  &:focus {
-    width: 220px;
-    ~ button {
-      &.btn-search {
-        background: hotpink;
-        border-radius: 0 50% 50% 0;
-        color: #fff;
-        left: 220px;
-      }
-      &.btn-reset {
-        animation: bounceRight .6s;
-        animation-delay: .2s;
-        animation-timing-function: cubic-bezier(.3,.2,1,.8);
-        border-radius: 50%;
-        color: #fff;
-        left: 254px;
-      }
-    }
-  }
+  outline: none;
+}
+
+div {
+  display: inline-block;
+}
+
+.search-box {
+  display: inline-block;
+  background-color: $white;
+}
+
+.search-box,
+.search-icon,
+.search-input {
+  height: 74px;
+}
+
+.search-icon {
+  padding-left: 42px;
+  padding-right: 34px;
+  color: #7B7B7B
+}
+
+.search-input {
+  font-size: 18px;
+  border: 0;
+  width: 548px;
+}
+
+.search-input:hover:focus {
+  border: 0px;
+  outline: none;
 }

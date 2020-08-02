@@ -1,6 +1,6 @@
-<div>
-  <input type="text" placeholder="Search for a country..." (input)="onInputFilterChanged($event)">
-  <button type="button" class="btn btn-search">
+<div class="search-box">
+  <div class="search-icon">
     <fa-icon [icon]="faSearch"></fa-icon>
-  </button>
+  </div>
+  <input type="text" class="search-input" placeholder="Search for a country..." (input)="onInputFilterChanged($event)">
 </div>
