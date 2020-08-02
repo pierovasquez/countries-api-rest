@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import { ThemeService } from './core/theme.service';
 
 @Component({
   selector: 'piero-root',
@@ -9,18 +10,19 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent implements OnInit {
 
   faMoon = faMoon;
-  storedTheme: string | null = localStorage.getItem('theme-color') || 'theme-light';
-
-  constructor() { }
-  ngOnInit() { }
+  storedTheme: string;
+  constructor(
+    private themeService: ThemeService
+  ) { }
+  ngOnInit() {
+    this.themeService.theme$.subscribe(theme => this.storedTheme = theme);
+  }
 
   toogleThemeMode() {
     if (this.storedTheme === 'theme-dark') {
-      localStorage.setItem('theme-color', 'theme-light');
-      this.storedTheme = localStorage.getItem('theme-color');
+      this.themeService.setNewTheme('theme-light');
     } else {
-      localStorage.setItem('theme-color', 'theme-dark');
-      this.storedTheme = localStorage.getItem('theme-color');
+      this.themeService.setNewTheme('theme-dark');
     }
   }
 }
