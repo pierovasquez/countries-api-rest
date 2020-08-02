@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Country } from '../country-list/country-list-factory';
+import { ThemeService } from '../../core/theme.service';
 
 @Component({
   selector: 'piero-country-item',
@@ -12,13 +13,17 @@ export class CountryItemComponent implements OnInit {
 
   @Output() countrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
-  constructor() { }
+  storedTheme: string;
+
+  constructor(
+    private themeService: ThemeService
+  ) { }
 
   ngOnInit(): void {
+    this.themeService.theme$.subscribe(theme => this.storedTheme = theme);
   }
 
   onCountrySelected() {
-    console.log('selectedCountr', this.country);
     this.countrySelected.next(this.country);
   }
 }

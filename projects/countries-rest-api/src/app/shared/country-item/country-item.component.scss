@@ -1,19 +1,47 @@
+@import "../../../assets/styles/variables";
+
 .card {
   display: flex;
   flex-direction: column;
+  width: 22rem;
+  height: 28rem;
+  font-size: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  overflow: hidden;
 
   &__image {
-    width:  352px;
-    height: 214px;
+    width:  22rem;
+    height: 13.375rem;
     background-size: cover;
     background-position: center;
   }
 
+  &__info {
+    padding-left: 2.125rem;
+    padding-top: 2.5rem;
+  }
+
   &__title {
+    font-size: 20px;
     font-weight: 800;
+    margin-bottom: 1.875rem;
+  }
+
+  &__population, &__region {
+    margin-bottom: 0.9375rem;
   }
 }
 
-.info__bold {
-  font-weight: 300;
+.card.theme-dark {
+  background-color: $darkBlueDarkMode;
 }
+
+.card.theme-light {
+  background-color: $white;
+}
+
+.info__bold {
+  font-weight: 800;
+}
+
