@@ -13,6 +13,23 @@ div {
   background-color: $white;
 }
 
+.search-box.theme-dark {
+
+  background-color: $darkBlueDarkMode;
+
+  .search-icon {
+    color: $white;
+  }
+
+  input {
+    background-color: $darkBlueDarkMode;
+    
+    &::placeholder {
+      color: $white;
+    }
+  }
+}
+
 .search-box,
 .search-icon,
 .search-input {
