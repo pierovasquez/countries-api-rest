@@ -13,6 +13,7 @@ export interface Country {
   alpha3Code: string;
   currenciesCode?: string[];
   languagesName?: string[];
+  bordersName?: string[];
 }
 
 
