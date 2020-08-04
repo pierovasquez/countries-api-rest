@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CountryDetailComponent } from './country-detail.component';
 import { CountryDetailRoutingModule } from './country-detail-routing.module';
 import { CountryDetailService } from './country-detail.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -10,7 +11,8 @@ import { CountryDetailService } from './country-detail.service';
   declarations: [CountryDetailComponent],
   imports: [
     CommonModule,
-    CountryDetailRoutingModule
+    CountryDetailRoutingModule,
+    FontAwesomeModule
   ],
   providers: [
     CountryDetailService

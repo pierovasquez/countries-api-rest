@@ -1,16 +1,107 @@
+@import "../../../assets/styles/variables";
+
 .detail__container {
   height: calc(100vh - 6.6875rem);
+}
+
+.back {
+  padding-top: 105px;
+}
+
+.back__button {
+  width: 180px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 44px;
+  padding-right: 54px;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 105px;
+
+  &__icon {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.back__button.theme-dark {
+  background-color: $darkBlueDarkMode;
 }
 
 .detailedCountry {
   display: flex;
 
   &__image {
-    width: 100px;
-    height: 100px;
+    flex: 1;
+    width: 650px;
+    height: 435px;
     background-size: cover;
     background-position: center;
+    margin-right: 280px;
   }
+
+  &__text {
+    flex: 1;
+    display: grid;
+    grid-template-areas:
+      "title title title title"
+      "first first second second"
+      "bottom bottom bottom bottom"
+    ;
+    padding-top: 60px;
+    padding-bottom: 50px;
+
+    &__titleName {
+      grid-area: title;
+      font-size: 40px;
+    }
+
+    &__firstSection {
+      grid-area: first;
+      display: flex;
+      flex-direction: column;
+      line-height: 2;
+    }
+
+    &__secondSection {
+      grid-area: second;
+      display: flex;
+      flex-direction: column;
+      line-height: 2;
+    }
+  }
+
+  &__borderCountries {
+    grid-area: bottom;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__text {
+      margin-right: 13px;
+    }
+
+    &__border {
+      height: 40px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 35px;
+      padding-right: 35px;
+      margin-right: 13px;
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.detailedCountry__borderCountries__border.theme-dark {
+  background-color: $darkBlueDarkMode;
 }
 
 .bold {

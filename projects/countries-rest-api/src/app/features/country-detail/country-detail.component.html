@@ -1,25 +1,31 @@
 <div class="detail__container">
   <div class="back">
-    <button type="button" (click)="onBackSelected()">Back</button>
+    <div class="back__button {{storedTheme}}" (click)="onBackSelected()">
+      <fa-icon [icon]="icon" class="back__button__icon"></fa-icon>
+      <a type="button" >Back</a>
+    </div>
   </div>
   <div class="detailedCountry" *ngIf="selectedCountry">
     <div class="detailedCountry__image" [ngStyle]="{'background-image': 'url(' + selectedCountry.flag + ')'}"></div>
     <div class="detailedCountry__text">
+      <div class="detailedCountry__text__titleName"><span class="bold">{{selectedCountry.name}}</span></div>
       <div class="detailedCountry__text__firstSection">
-        <span class="detailedCountry__text__name"><span class="bold">Native Name:</span>{{selectedCountry.nativeName}}</span>
-        <span class="detailedCountry__text__population"><span class="bold">Population:</span>{{selectedCountry.population}}</span>
-        <span class="detailedCountry__text__region"><span class="bold">Region:</span>{{selectedCountry.region}}</span>
-        <span class="detailedCountry__text__subRegion"><span class="bold">Sub Region:</span>{{selectedCountry.subregion}}</span>
-        <span class="detailedCountry__text__capital"><span class="bold">Capital:</span>{{selectedCountry.capital}}</span>
+        <span class="detailedCountry__text__name"><span class="bold">Native Name:</span>&nbsp;{{selectedCountry.nativeName}}</span>
+        <span class="detailedCountry__text__population"><span class="bold">Population:</span>&nbsp;{{selectedCountry.population | number}}</span>
+        <span class="detailedCountry__text__region"><span class="bold">Region:</span>&nbsp;{{selectedCountry.region}}</span>
+        <span class="detailedCountry__text__subRegion"><span class="bold">Sub Region:</span>&nbsp;{{selectedCountry.subregion}}</span>
+        <span class="detailedCountry__text__capital"><span class="bold">Capital:</span>&nbsp;{{selectedCountry.capital}}</span>
       </div>
       <div class="detailedCountry__text__secondSection">
-        <span class="detailedCountry__text__topLevelDomain"><span class="bold">Top Level Domain:</span>{{selectedCountry.topLevelDomain}}</span>
-        <span class="detailedCountry__text__currencies"><span class="bold">Currencies:</span>{{selectedCountry.currenciesCode?.toString()}}</span>
-        <span class="detailedCountry__text__language"><span class="bold">Languages:</span>{{selectedCountry.languagesName?.toString()}}</span>
+        <span class="detailedCountry__text__topLevelDomain"><span class="bold">Top Level Domain:</span>&nbsp;{{selectedCountry.topLevelDomain}}</span>
+        <span class="detailedCountry__text__currencies"><span class="bold">Currencies:</span>&nbsp;{{selectedCountry.currenciesCode?.toString()}}</span>
+        <span class="detailedCountry__text__language"><span class="bold">Languages:</span>&nbsp;{{selectedCountry.languagesName?.toString()}}</span>
       </div>
       <div class="detailedCountry__borderCountries">
-        <span class="detailedCountry__borderCountries__text">Border Countries:</span>
-        <!-- <span class="detailedCountry__borderCountries__border">{{selectedCountry.borders.toString()}}</span> -->
+        <span class="detailedCountry__borderCountries__text bold">Border Countries:</span>
+        <ng-container *ngFor="let border of selectedCountry.bordersName">
+          <span (click)="onBorderCountrySelected(border)" class="detailedCountry__borderCountries__border {{storedTheme}}">{{border}}</span>
+        </ng-container>
       </div>
     </div>
   </div>
