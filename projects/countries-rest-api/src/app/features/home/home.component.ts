@@ -14,16 +14,9 @@ export class HomeComponent implements OnInit {
   filterClear: boolean;
 
   constructor(
-    private router: Router,
-    private homeService: HomeService
-  ) { }
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.homeService.countryList$.subscribe(filteredCountries => {
-      console.log('filteredCountries', filteredCountries);
-      this.filterClear = false;
-      this.filteredCountries = filteredCountries;
-    });
   }
 
   onCountrySelected(country: Country) {

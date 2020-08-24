@@ -26,7 +26,6 @@ export class FilterInputComponent implements OnInit {
 
 
   onInputFilterChanged(filter: InputEvent) {
-    console.log('filter', filter);
     this.homeService.emitInputChange((filter.target as any).value);
     if (filter && filter.target && !(filter.target as any).value) {
       this.filterClear.next(true);

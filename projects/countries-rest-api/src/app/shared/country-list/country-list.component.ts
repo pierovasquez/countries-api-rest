@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CountryListService } from './country-list.service';
-import { Observable } from 'rxjs';
 import { Country } from './country-list-factory';
+import { HomeService } from '../../features/home/home.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'piero-country-list',
@@ -10,35 +11,33 @@ import { Country } from './country-list-factory';
   providers: [CountryListService]
 })
 export class CountryListComponent implements OnInit {
-
-  countries$: Observable<Country[]>;
   private _countries: Country[];
-
-  @Input() set countries(filteredCountries) {
-    if (filteredCountries) {
-      this._countries = filteredCountries;
-    } else {
-      this._countries = [];
-    }
-  }
-  get countries() {
-    return this._countries;
-  }
+  private searchFilter: string;
 
   @Input() filterClear = true;
   @Output() countrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
+
   constructor(
-    private countryListService: CountryListService
+    private countryListService: CountryListService,
+    private homeService: HomeService
   ) { }
 
   ngOnInit(): void {
     this.filterClear = true;
-    this.countries$ = this.countryListService.countryList$;
+    this.countryListService.countryList$.subscribe(countries => this._countries = countries);
+    this.homeService.inputChange$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(filter => this.searchFilter = filter);
   }
 
   onCountrySelected(selectedCountry: Country) {
     this.countrySelected.next(selectedCountry);
+  }
+
+  get countries() {
+    return this._countries 
+      ? this._countries.filter(country => 
+          this.searchFilter ? country.name.toLowerCase().includes(this.searchFilter) : country) 
+      : this._countries;
   }
 
 }
