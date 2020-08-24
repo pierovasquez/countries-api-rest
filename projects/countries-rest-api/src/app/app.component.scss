@@ -1,5 +1,7 @@
 @import "../assets/styles/variables";
 
+
+
 .header {
   display: flex;
   flex-direction: row;
@@ -31,12 +33,15 @@
   padding-right: 6.625rem;
 }
 
+.app {
+  min-height: 100vh;
+}
 
-.container.theme-light {
+.app.theme-light {
   background-color: $veryLightGrayLightMode;
 }
 
-.container.theme-dark {
+.app.theme-dark {
   background-color: $veryDarkBlueDarkMode;
   color: $white;
 }

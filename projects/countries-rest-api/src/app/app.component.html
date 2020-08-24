@@ -1,12 +1,14 @@
-<div class="header {{storedTheme}} p-x">
-  <div class="header__title">
-    Where in the world?
+<div class="app {{storedTheme}}">
+  <div class="header {{storedTheme}} p-x">
+    <div class="header__title">
+      Where in the world?
+    </div>
+    <div class="header__theme_mode" (click)="toogleThemeMode()">
+      <fa-icon [icon]="faMoon"></fa-icon>
+      Dark Mode
+    </div>
   </div>
-  <div class="header__theme_mode" (click)="toogleThemeMode()">
-    <fa-icon [icon]="faMoon"></fa-icon>
-    Dark Mode
+  <div class="container p-x">
+    <router-outlet></router-outlet>
   </div>
-</div>
-<div class="container {{storedTheme}} p-x">
-  <router-outlet></router-outlet>
 </div>
