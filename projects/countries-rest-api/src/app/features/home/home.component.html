@@ -1,6 +1,6 @@
 
 <div class="filter">
-  <piero-filter-input (filterClear)="onFilterClear()"></piero-filter-input>
-  <piero-filter-select></piero-filter-select>
+  <piero-filter-input></piero-filter-input>
+  <piero-filter-select placeholder="Filter by Region" [options]="regionOptions"></piero-filter-select>
 </div>
-<piero-country-list [filterClear]="filterClear" (countrySelected)="onCountrySelected($event)"></piero-country-list>
+<piero-country-list (countrySelected)="onCountrySelected($event)"></piero-country-list>

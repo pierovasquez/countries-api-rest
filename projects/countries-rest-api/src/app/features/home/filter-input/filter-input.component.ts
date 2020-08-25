@@ -12,7 +12,6 @@ export class FilterInputComponent implements OnInit {
 
   faSearch = faSearch;
 
-  @Output() filterClear: EventEmitter<boolean> = new EventEmitter<boolean>();
   storedTheme: string;
 
   constructor(
@@ -27,13 +26,6 @@ export class FilterInputComponent implements OnInit {
 
   onInputFilterChanged(filter: InputEvent) {
     this.homeService.emitInputChange((filter.target as any).value);
-    if (filter && filter.target && !(filter.target as any).value) {
-      this.filterClear.next(true);
-    }
-  }
-
-  onInputFilterClear() {
-    this.filterClear.next(true);
   }
 
 }

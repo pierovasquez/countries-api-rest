@@ -2,7 +2,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CountryListService } from './country-list.service';
 import { Country } from './country-list-factory';
 import { HomeService } from '../../features/home/home.service';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { startWith } from 'rxjs/operators';
+
 
 @Component({
   selector: 'piero-country-list',
@@ -13,20 +15,26 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class CountryListComponent implements OnInit {
   private _countries: Country[];
   private searchFilter: string;
+  private selectFilter: string;
 
-  @Input() filterClear = true;
   @Output() countrySelected: EventEmitter<Country> = new EventEmitter<Country>();
 
 
   constructor(
     private countryListService: CountryListService,
     private homeService: HomeService
-  ) { }
+  ) {
+    // tslint:disable-next-line: max-line-length
+    const filterObservables = combineLatest([this.homeService.inputChange$.pipe(startWith('')), this.homeService.selectChange$.pipe(startWith(''))]);
+
+    filterObservables.subscribe(([input, select]) => {
+      this.searchFilter = input ? input : '';
+      this.selectFilter = select ? select : '';
+    });
+  }
 
   ngOnInit(): void {
-    this.filterClear = true;
     this.countryListService.countryList$.subscribe(countries => this._countries = countries);
-    this.homeService.inputChange$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(filter => this.searchFilter = filter);
   }
 
   onCountrySelected(selectedCountry: Country) {
@@ -34,9 +42,12 @@ export class CountryListComponent implements OnInit {
   }
 
   get countries() {
-    return this._countries 
-      ? this._countries.filter(country => 
-          this.searchFilter ? country.name.toLowerCase().includes(this.searchFilter) : country) 
+    return this._countries
+      ? this._countries
+          .filter(country =>
+            this.searchFilter ? country.name.toLowerCase().includes(this.searchFilter) : country)
+          .filter(country =>
+            this.selectFilter ? country.region.includes(this.selectFilter) : country)
       : this._countries;
   }
 
