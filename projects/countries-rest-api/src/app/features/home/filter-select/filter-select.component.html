@@ -1,6 +1,7 @@
-<div class="dropdown">
-  <div class="dropdown-label" (click)="toggleOptions()">
-    <span>{{placeholder}}</span>
+<div class="dropdown" (click)="toggleOptions()">
+  <div class="dropdown-label">
+    <span *ngIf="!selectedOption">{{placeholder}}</span>
+    <span *ngIf="selectedOption">{{selectedOption}}</span>
     <fa-icon [icon]="icon"></fa-icon>
   </div>
   <ul *ngIf="showOptions" class="dropdown-options shadow">

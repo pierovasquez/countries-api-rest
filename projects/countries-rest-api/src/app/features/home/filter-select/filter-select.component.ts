@@ -10,6 +10,8 @@ import { HomeService } from '../home.service';
 export class FilterSelectComponent implements OnInit {
   showOptions = false;
 
+  selectedOption = '';
+
   @Input() placeholder: string;
   @Input() options: string[];
 
@@ -23,7 +25,12 @@ export class FilterSelectComponent implements OnInit {
   }
 
   select(value: string) {
-    this.homeService.emitSelectChange(value);
+    if (this.selectedOption === value) {
+      this.selectedOption = '';
+    } else {
+      this.selectedOption = value;
+    }
+    this.homeService.emitSelectChange(this.selectedOption);
   }
 
   toggleOptions() {

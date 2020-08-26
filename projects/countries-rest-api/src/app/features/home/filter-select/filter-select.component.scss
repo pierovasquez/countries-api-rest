@@ -2,10 +2,12 @@
 @import "../../../../assets/styles/mixins";
 
 .dropdown {
-  border-radius: 0.25rem;
+  border-radius: 5px;
   position: relative;
   margin-top: 1rem;
   padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
 
   @include breakpoint-up(medium) {}
 
@@ -19,7 +21,7 @@
   }
 
   &-options {
-    border-radius: 0.25rem;
+    border-radius: 5px;
     list-style: none;
     position: absolute;
     top: 110%;
@@ -28,6 +30,7 @@
     width: 100%;
     li {
       padding: 0.5rem;
+      padding-left: 1rem;
     }
   }
 }
@@ -38,6 +41,10 @@
   .dropdown-options {
     background-color: $darkBlueDarkMode;
   }
+
+  .dropdown-options > li:hover {
+    background-color: lighten($color: $darkBlueDarkMode, $amount: 4);
+  }
 }
 
 :host-context(.theme-light) {
@@ -45,5 +52,9 @@
   .dropdown,
   .dropdown-options {
     background-color: $white;
+  }
+
+  .dropdown-options > li:hover {
+    background-color: darken($color: $white, $amount: 4)
   }
 }
