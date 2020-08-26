@@ -1,35 +1,56 @@
 @import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
 
 .card {
   display: flex;
   flex-direction: column;
-  width: 22rem;
+  width: 100%;
   height: 28rem;
   font-size: 15px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 5px;
   overflow: hidden;
 
+  @include breakpoint-down(small) {
+    height: 337px;
+    font-size: 12px;
+  }
+
   &__image {
-    width:  22rem;
+    width:  100%;
     height: 13.375rem;
     background-size: cover;
     background-position: center;
+
+    @include breakpoint-down(small) {
+      height: 160px;
+    }
   }
 
   &__info {
     padding-left: 2.125rem;
     padding-top: 2.5rem;
+    @include breakpoint-down(small) {
+      padding-top: 30px;
+      padding-left: 25px;
+      padding-bottom: 46px;
+      max-height: 177px;
+    }
   }
 
   &__title {
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 1.875rem;
+
+    @include breakpoint-down(small) {
+      margin-bottom: 23px;
+      font-size: 14px;
+    }
   }
 
   &__population, &__region {
-    margin-bottom: 0.9375rem;
+    margin-bottom: 12px;
   }
 }
 
@@ -42,6 +63,6 @@
 }
 
 .info__bold {
-  font-weight: 800;
+  font-weight: 600;
 }
 

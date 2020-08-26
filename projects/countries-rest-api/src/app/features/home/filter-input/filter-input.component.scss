@@ -1,4 +1,5 @@
 @import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
 
 input {
   outline: none;
@@ -11,6 +12,8 @@ div {
 .search-box {
   display: inline-block;
   background-color: $white;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .search-box.theme-dark {
@@ -33,19 +36,29 @@ div {
 .search-box,
 .search-icon,
 .search-input {
-  height: 74px;
+  height: 54px;
 }
 
 .search-icon {
   padding-left: 42px;
   padding-right: 34px;
-  color: #7B7B7B
+  color: #7B7B7B;
+
+  @include breakpoint-down(small) {
+    padding-left: 32px;
+    padding-right: 27px;
+  };
 }
 
 .search-input {
   font-size: 18px;
   border: 0;
   width: 548px;
+
+  @include breakpoint-down(small) {
+    font-size: 12px;
+    width: 260px;
+  };
 }
 
 .search-input:hover:focus {

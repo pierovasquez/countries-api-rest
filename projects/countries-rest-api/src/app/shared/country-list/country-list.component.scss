@@ -1,6 +1,18 @@
+@import "../../../assets/styles/mixins";
+
 .country-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 6.25rem;
+  padding-bottom: 5%;
+
+  @include breakpoint-down(small) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 40px;
+
+  }
 }

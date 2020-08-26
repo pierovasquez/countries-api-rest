@@ -82,6 +82,7 @@
 
     &__text {
       margin-right: 13px;
+      align-self: center;
     }
 
     &__border {
@@ -91,6 +92,7 @@
       padding-left: 35px;
       padding-right: 35px;
       margin-right: 13px;
+      margin-bottom: 12px;
       box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
 
       &:hover {
