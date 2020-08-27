@@ -29,7 +29,6 @@ export class CountryDetailComponent implements OnInit {
       map(params => params.get('id')),
       switchMap((param: string) => this.countryDetailService.getCountryByName(param))
     ).subscribe((selectedCountry: Country) => {
-      console.log('detailedSelected', selectedCountry);
       this.selectedCountry = selectedCountry;
     }, error => console.log('error Ocurred'));
     this.themeService.theme$.subscribe(theme => this.storedTheme = theme);
