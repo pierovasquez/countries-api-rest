@@ -1,3 +1,5 @@
+# CountriesRestApi
+
 ## Welcome! 👋
 
 This is a landing page done with the given desing by www.frontendmentor.io. The technologies I used to get this done are the following:
@@ -13,10 +15,6 @@ API where I get the data: https://restcountries.eu/
 ## Live Preview
 
 https://countries-piero.netlify.app/home
-
-# CountriesRestApi
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
 ## Development server
 
