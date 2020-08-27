@@ -1,11 +1,18 @@
 @import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
 
 .detail__container {
-  height: calc(100vh - 6.6875rem);
+  @include breakpoint-up(medium) {
+    height: calc(100vh - 6.6875rem);
+  }
 }
 
 .back {
   padding-top: 105px;
+
+  @include breakpoint-down(small) {
+    padding-top: 40px;
+  }
 }
 
 .back__button {
@@ -16,6 +23,16 @@
   padding-right: 54px;
   box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 105px;
+
+  @include breakpoint-down(small) {
+    font-size: 12px;
+    width: 105px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 26px;
+    padding-right: 24px;
+    margin-bottom: 64px;
+  }
 
   &__icon {
     margin-right: 1rem;
@@ -33,6 +50,12 @@
 .detailedCountry {
   display: flex;
 
+
+  @include breakpoint-down(small) {
+    flex-direction: column;
+    font-size: 12px;
+  }
+
   &__image {
     flex: 1;
     width: 650px;
@@ -40,6 +63,13 @@
     background-size: cover;
     background-position: center;
     margin-right: 280px;
+
+    @include breakpoint-down(small) {
+      flex: none;
+      width: 320px;
+      height: 230px;
+      margin-right: 0;
+    }
   }
 
   &__text {
@@ -53,9 +83,23 @@
     padding-top: 60px;
     padding-bottom: 50px;
 
+    @include breakpoint-down(small) {
+      padding-top: 50px;
+      grid-template-areas:
+        "title"
+        "first"
+        "second"
+        "bottom";
+    }
+
     &__titleName {
       grid-area: title;
       font-size: 40px;
+
+      @include breakpoint-down(small) {
+        font-size: 17px;
+        padding-bottom: 35px;
+      }
     }
 
     &__firstSection {
@@ -63,6 +107,11 @@
       display: flex;
       flex-direction: column;
       line-height: 2;
+
+      @include breakpoint-down(small) {
+        margin-bottom: 55px;
+        line-height: 2.25;
+      }
     }
 
     &__secondSection {
@@ -70,6 +119,11 @@
       display: flex;
       flex-direction: column;
       line-height: 2;
+
+      @include breakpoint-down(small) {
+        margin-bottom: 55px;
+        line-height: 2.25;
+      }
     }
   }
 
@@ -83,6 +137,11 @@
     &__text {
       margin-right: 13px;
       align-self: center;
+
+      @include breakpoint-down(small) {
+        flex: 1 1 100%;
+        margin-bottom: 22px;
+      }
     }
 
     &__border {
@@ -94,6 +153,15 @@
       margin-right: 13px;
       margin-bottom: 12px;
       box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+
+      @include breakpoint-down(small) {
+        height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-right: 10px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -107,5 +175,9 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 800;
+}
+
+.medium-bold {
+  font-weight: 600;
 }
